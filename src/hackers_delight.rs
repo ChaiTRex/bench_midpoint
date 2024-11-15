@@ -2,6 +2,7 @@ macro_rules! midpoint_impl {
     ($($ty:ident)*) => {
         $(
             impl Midpoint for $ty {
+                #[inline]
                 fn midpoint_2(a: Self, b: Self) -> Self {
                     ((a ^ b) >> 1) + (a & b)
                 }

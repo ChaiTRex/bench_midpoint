@@ -1,15 +1,14 @@
 macro_rules! midpoint_impl {
-    ($ty:ident $next_ty:ident $($tail_ty:ident)*) => {
-        impl Midpoint for $ty {
-            #[inline]
-            fn midpoint_2(a: Self, b: Self) -> Self {
-                ((a as $next_ty + b as $next_ty) / 2) as $ty
+    ($($ty:ident)*) => {
+        $(
+            impl Midpoint for $ty {
+                #[inline]
+                fn midpoint_2(a: Self, b: Self) -> Self {
+                    a.midpoint(b)
+                }
             }
-        }
-
-        midpoint_impl!($next_ty $($tail_ty)*);
+        )*
     };
-    ($ty:ident) => {};
 }
 
 pub trait Midpoint {
@@ -45,4 +44,4 @@ macro_rules! test_impl {
 #[cfg(test)]
 use num_bigint::BigUint;
 
-test_impl!(u8 u16 u32 u64);
+test_impl!(u8 u16 u32 u64 u128);

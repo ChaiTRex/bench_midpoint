@@ -39,7 +39,8 @@ pub fn criterion_benchmark(c: &mut Criterion) {
     benches!(
         hackers_delight: "Hacker's Delight", u8 u16 u32 u64 u128;
         next_larger_type: "next larger type", u8 u16 u32 u64;
-        overflow_flag: "overflow flag", u8 u16 u32 u64 u128
+        overflow_flag: "overflow flag", u8 u16 u32 u64 u128;
+        stdlib: "`std`", u8 u16 u32 u64 u128
     );
 }
 

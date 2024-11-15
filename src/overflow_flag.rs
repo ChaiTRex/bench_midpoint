@@ -2,6 +2,7 @@ macro_rules! midpoint_impl {
     ($($ty:ident)*) => {
         $(
             impl Midpoint for $ty {
+                #[inline]
                 fn midpoint_2(a: Self, b: Self) -> Self {
                     const BITS_MINUS_ONE: u32 = <$ty>::BITS - 1;
 
